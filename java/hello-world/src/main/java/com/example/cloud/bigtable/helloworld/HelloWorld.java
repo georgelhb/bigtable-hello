@@ -49,7 +49,7 @@ public class HelloWorld {
 
   // Write some friendly greetings to Cloud Bigtable
   private static final String[] GREETINGS =
-      { "Row 1:Hello World!", "Row 2:Hello Cloud Bigtable!", "Row 3:Hello HBase!", "Row 4: Hello GCP!", "Row 5:Hello Google Cloud!" };
+      { "Row 1: Hello World!", "Row 2: Hello Cloud Bigtable!", "Row 3: Hello HBase!", "Row 4: Hello GCP!", "Row 5: Hello Google Cloud!" };
 
   /**
    * Connects to Cloud Bigtable, runs some basic operations and prints the results.
@@ -100,17 +100,8 @@ public class HelloWorld {
       }
       // [END writing_rows]
 
-      // [START getting_a_row]
-      // Get the first greeting by row key
-      String rowKey = "greeting0";
-      Result getResult = table.get(new Get(Bytes.toBytes(rowKey)));
-      String greeting = Bytes.toString(getResult.getValue(COLUMN_FAMILY_NAME, COLUMN_NAME));
-      System.out.println("Get a single greeting by row key");
-      System.out.printf("\t%s = %s\n", rowKey, greeting);
-      // [END getting_a_row]
-
       // [START scanning_all_rows]
-      // Now scan across all rows.
+      // Scan across all rows.
       Scan scan = new Scan();
 
       print("3) Read the Table:");
